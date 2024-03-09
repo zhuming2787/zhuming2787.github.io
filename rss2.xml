@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Zhuming&#39;博客</title>
+    <link>http://example.com/</link>
+    
+    <atom:link href="http://example.com/rss2.xml" rel="self" type="application/rss+xml"/>
+    
+    <description>成为更好的自己</description>
+    <pubDate>Sat, 09 Mar 2024 12:31:52 GMT</pubDate>
+    <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>First File</title>
+      <link>http://example.com/2024/03/09/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</link>
+      <guid>http://example.com/2024/03/09/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</guid>
+      <pubDate>Sat, 09 Mar 2024 12:27:08 GMT</pubDate>
+      
+      
+      
+      
+      
+      
+      <comments>http://example.com/2024/03/09/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/#disqus_thread</comments>
+      
+    </item>
+    
+  </channel>
+</rss>

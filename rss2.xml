@@ -9,7 +9,7 @@
     <atom:link href="http://example.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>成为更好的自己</description>
-    <pubDate>Sat, 09 Mar 2024 12:31:52 GMT</pubDate>
+    <pubDate>Sun, 10 Mar 2024 04:50:37 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -18,7 +18,17 @@
       <guid>http://example.com/2024/03/09/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</guid>
       <pubDate>Sat, 09 Mar 2024 12:27:08 GMT</pubDate>
       
+        
+        
+      <description>&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;什么是链表？&quot;&gt;&lt;a href=&quot;#什么是链表？&quot; class=&quot;headerlink&quot; title=&quot;什么是链表？&quot;&gt;&lt;/a&gt;什么是链表？&lt;/h2&gt;&lt;p&gt;&amp;emsp;如图&lt;br&gt;&lt;img src=&quot;https://pic</description>
+        
       
+      
+      
+      <content:encoded><![CDATA[<ul><li></li></ul><h2 id="什么是链表？"><a href="#什么是链表？" class="headerlink" title="什么是链表？"></a>什么是链表？</h2><p>&emsp;如图<br><img src="https://pic4.zhimg.com/v2-3a42e577405f60a79294ce207dcba53e_r.jpg"><br><strong>链表</strong>的特点:用一组位于任意位置的存储单元存储线性表的数据元素</p><h2 id="代码实现链表的方法-动态链表：工程上为了节省空间经常使用静态链表：算法竞赛里面经常使用-而且会直接使用STL-listtop-true"><a href="#代码实现链表的方法-动态链表：工程上为了节省空间经常使用静态链表：算法竞赛里面经常使用-而且会直接使用STL-listtop-true" class="headerlink" title="代码实现链表的方法:动态链表：工程上为了节省空间经常使用静态链表：算法竞赛里面经常使用,而且会直接使用STL listtop: true"></a><strong>代码实现链表的方法</strong>:<br>动态链表：工程上为了节省空间经常使用<br>静态链表：算法竞赛里面经常使用,而且会直接使用STL list<br>top: true</h2>]]></content:encoded>
       
       
       

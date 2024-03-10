@@ -194,6 +194,85 @@
   //post-footer
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/10/C-%E5%9F%BA%E7%A1%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zhuming">
+      <meta itemprop="description" content="成为更好的自己">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhuming'博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/03/10/C-%E5%9F%BA%E7%A1%80/" class="post-title-link" itemprop="url">C++基础</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-03-10 20:02:12 / 修改时间：20:04:01" itemprop="dateCreated datePublished" datetime="2024-03-10T20:02:12+08:00">2024-03-10</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="C-基础"><a href="#C-基础" class="headerlink" title="C++ 基础"></a>C++ 基础</h2><hr>
+<h3 id="1-1-1-简述下C-语言的特点"><a href="#1-1-1-简述下C-语言的特点" class="headerlink" title="1.1.1 简述下C++语言的特点"></a>1.1.1 简述下C++语言的特点</h3><ol>
+<li>C++在C语言的基础上引入了<strong>面对对象</strong>的机制，同时也兼容C语言<br>(面对对象：把一切事物抽象，然后对每个事物的性质和行为进行分析,而面向过程指将一件事情按照步骤进行)</li>
+<li>C++有三大特性: (1). 封装 (2). 继承 (3). 多态<br>(封装：就是将一个类的信息隐藏在类的内部，不允许外界直接访问，而是提供某些方法实现对隐藏信息的访问和操作。封装的好处就是增强了<strong>数据安全性</strong>，也方便了类的实现和修改)<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class student&#123;</span><br><span class="line">public:  //公共权限  类内可以访问 类外可以访问</span><br><span class="line">    string School;</span><br><span class="line">protected: //保护权限 类内可以访问 类外不可以访问</span><br><span class="line">    string PhoneNumber;</span><br><span class="line">private: //私有权限 类内可以访问 类外不可以访问</span><br><span class="line">    int Birthday;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+&emsp;(继承：类与类之间的一种关系。让子类继承父类的特征和行为。好处在于实现了代码的复用)<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class BasePage&#123;</span><br><span class="line">public:...</span><br><span class="line">protected:...</span><br><span class="line">private:...</span><br><span class="line">&#125;</span><br><span class="line">class Java : public BasePage&#123;...&#125;</span><br></pre></td></tr></table></figure>
+&emsp;继承方式：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class A&#123;</span><br><span class="line">public: int a;</span><br><span class="line">protected: int b;</span><br><span class="line">private: int c;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class B:public A //第一种方法</span><br><span class="line">&#123;</span><br><span class="line">public: int a;</span><br><span class="line">protected: int b;</span><br><span class="line">不可访问: int c;</span><br><span class="line">&#125;</span><br><span class="line">class B:protected A //第二种方法</span><br><span class="line">&#123;</span><br><span class="line">protected:</span><br><span class="line">int a;int b;</span><br><span class="line">不可访问：int c;</span><br><span class="line">&#125;</span><br><span class="line">class B:private A //第三种方法</span><br><span class="line">&#123;</span><br><span class="line">private:int a int b;</span><br><span class="line">不可访问: int c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<hr>
+<h4 id="struct和class唯一区别在于默认的访问权限不同"><a href="#struct和class唯一区别在于默认的访问权限不同" class="headerlink" title="struct和class唯一区别在于默认的访问权限不同"></a>struct和class唯一区别在于默认的访问权限不同</h4><h6 id="struct默认公共；class默认私有"><a href="#struct默认公共；class默认私有" class="headerlink" title="struct默认公共；class默认私有"></a><code>struct</code>默认公共；<code>class</code>默认私有</h6><hr>
+<p>(多态：指的是一个类对象的相同方法在不同情形下有不同的表现形式。使得不同内部结构的对象可以共享相同的外部接口)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>C++语言编写出的程序结构清晰、易于扩充，程序可读性好。</li>
+<li>C++生成的代码质量高，运行效率高、仅比汇编语言慢10%~20%</li>
+<li>C++更加安全，增加了const常量，引用，四类cast转化、智能指针等</li>
+<li>C++可复用性高、引入了模板的概念、比如标准模板库STL</li>
+<li>最后，C++是不断在发展的语言。C++后续版本更是更新发展了不少新特性比如nullptr、auto变量等</li>
+</ol>
+<hr>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  //post-footer
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/09/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -208,7 +287,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2024/03/09/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" class="post-title-link" itemprop="url">First File</a>
+            <a href="/2024/03/09/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" class="post-title-link" itemprop="url">链表</a>
         </h2>
 
         <div class="post-meta">
@@ -225,7 +304,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-03-10 12:50:37" itemprop="dateModified" datetime="2024-03-10T12:50:37+08:00">2024-03-10</time>
+                <time title="修改时间：2024-03-10 14:02:00" itemprop="dateModified" datetime="2024-03-10T14:02:00+08:00">2024-03-10</time>
               </span>
 
           
@@ -243,7 +322,9 @@
 <li></li>
 </ul>
 <h2 id="什么是链表？"><a href="#什么是链表？" class="headerlink" title="什么是链表？"></a>什么是链表？</h2><p>&emsp;如图<br><img src="https://pic4.zhimg.com/v2-3a42e577405f60a79294ce207dcba53e_r.jpg"><br><strong>链表</strong>的特点:用一组位于任意位置的存储单元存储线性表的数据元素</p>
-<h2 id="代码实现链表的方法-动态链表：工程上为了节省空间经常使用静态链表：算法竞赛里面经常使用-而且会直接使用STL-listtop-true"><a href="#代码实现链表的方法-动态链表：工程上为了节省空间经常使用静态链表：算法竞赛里面经常使用-而且会直接使用STL-listtop-true" class="headerlink" title="代码实现链表的方法:动态链表：工程上为了节省空间经常使用静态链表：算法竞赛里面经常使用,而且会直接使用STL listtop: true"></a><strong>代码实现链表的方法</strong>:<br>动态链表：工程上为了节省空间经常使用<br>静态链表：算法竞赛里面经常使用,而且会直接使用STL list<br>top: true</h2>
+<p><strong>代码实现链表的方法</strong>:<br>动态链表：工程上为了节省空间经常使用<br>静态链表：算法竞赛里面经常使用,而且会直接使用STL list</p>
+<hr>
+
       
     </div>
 
@@ -328,9 +409,15 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">日志</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>

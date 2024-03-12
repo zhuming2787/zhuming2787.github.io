@@ -9,8 +9,36 @@
     <atom:link href="http://example.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>成为更好的自己</description>
-    <pubDate>Sun, 10 Mar 2024 12:04:01 GMT</pubDate>
+    <pubDate>Tue, 12 Mar 2024 12:29:24 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>单调栈</title>
+      <link>http://example.com/2024/03/12/%E5%8D%95%E8%B0%83%E6%A0%88/</link>
+      <guid>http://example.com/2024/03/12/%E5%8D%95%E8%B0%83%E6%A0%88/</guid>
+      <pubDate>Tue, 12 Mar 2024 12:25:02 GMT</pubDate>
+      
+        
+        
+      <description>&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;单调栈&lt;/strong&gt;是一种常用的数据结构，主要用于解决一些与连续元素相关的问题。以下是单调栈的一些常见应用：&lt;/p&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;寻找下一个更大元素（Next Greater Element）：给定一个数组，对于数组中的每</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<hr><p><strong>单调栈</strong>是一种常用的数据结构，主要用于解决一些与连续元素相关的问题。以下是单调栈的一些常见应用：</p><hr><ul><li><p>寻找下一个更大元素（Next Greater Element）：给定一个数组，对于数组中的每个元素，找到右边第一个比它大的元素。这个问题可以使用单调递减栈来解决。遍历数组，将元素的索引入栈，如果当前元素比栈顶元素大，那么弹出栈顶元素，并将当前元素作为栈顶元素的下一个更大元素。<br>eg.<a href="https://www.luogu.com.cn/problem/P2947">奶牛问题(洛谷 P2947)</a>利用单调栈，将O(n²)优化成了O(n)</p></li><li><p>寻找下一个更小元素（Next Smaller Element）：类似于上述问题，给定一个数组，对于数组中的每个元素，找到右边第一个比它小的元素。这个问题可以使用单调递增栈来解决。</p></li><li><p>寻找最近更大元素（Closest Greater Element）：给定一个数组，对于数组中的每个元素，找到距离它最近且大于它的元素。这个问题可以使用单调递减栈来解决。遍历数组，如果当前元素比栈顶元素大，那么弹出栈顶元素，直到找到距离当前元素最近的更大元素。</p></li><li><p>寻找最近更小元素（Closest Smaller Element）：类似于上述问题，给定一个数组，对于数组中的每个元素，找到距离它最近且小于它的元素。这个问题可以使用单调递增栈来解决。</p></li></ul><hr><p>柱状图中最大矩形面积（Largest Rectangle in Histogram）：给定一个柱状图，找到面积最大的矩形。这个问题可以使用单调递增栈来解决。遍历柱状图，如果当前柱的高度小于栈顶柱的高度，则计算栈顶柱的面积，并更新最大面积。反之，将当前柱入栈。</p><p>接雨水（Trapping Rain Water）：给定一个数组，表示不同高度的墙，求解能够容纳多少雨水。这个问题可以使用单调递减栈来解决。遍历数组，如果当前元素比栈顶元素大，则计算两者之间能够容纳的雨水量，并累加到总雨水量中。</p><p>以上是单调栈的一些常见应用，它可以帮助我们解决许多与连续元素相关的问题，提高算法的效率并简化代码实现。</p>]]></content:encoded>
+      
+      
+      
+      <category domain="http://example.com/tags/%E6%A0%88/">栈</category>
+      
+      
+      <comments>http://example.com/2024/03/12/%E5%8D%95%E8%B0%83%E6%A0%88/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>C++基础</title>

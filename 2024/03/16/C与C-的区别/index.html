@@ -22,20 +22,19 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="C++ 基础 1.1.1 简述下C++语言的特点 C++在C语言的基础上引入了面对对象的机制，同时也兼容C语言(面对对象：把一切事物抽象，然后对每个事物的性质和行为进行分析,而面向过程指将一件事情按照步骤进行) C++有三大特性: (1). 封装 (2). 继承 (3). 多态(封装：就是将一个类的信息隐藏在类的内部，不允许外界直接访问，而是提供某些方法实现对隐藏信息的访问和操作。封装的好处就是增">
-<meta property="og:type" content="website">
-<meta property="og:title" content="C++基础">
-<meta property="og:url" content="http://example.com/resources/C-%E5%9F%BA%E7%A1%80.html">
+  <meta name="description" content="1.C语言是C++的子集，C++可以很好的兼容C语言，但是C++又有很多新特性，如引用、智能指针、auto变量等2.C++是面向对象的编程语言；C语言是面向过程的编辑语言。 面对对象 ： 把世界万物当成一个对象class，包含本身的属性特性和行为(函数)面对过程 ： 把一件事情分成很多步骤去做，比如一个事情分成了很多个函数，然后一个一个去调用  3.C语言有一些不安全的语言特性，如指针使用的潜在危">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C与C++的区别(面试模板第二天)">
+<meta property="og:url" content="http://example.com/2024/03/16/C%E4%B8%8EC-%E7%9A%84%E5%8C%BA%E5%88%AB/index.html">
 <meta property="og:site_name" content="Zhuming&#39;博客">
-<meta property="og:description" content="C++ 基础 1.1.1 简述下C++语言的特点 C++在C语言的基础上引入了面对对象的机制，同时也兼容C语言(面对对象：把一切事物抽象，然后对每个事物的性质和行为进行分析,而面向过程指将一件事情按照步骤进行) C++有三大特性: (1). 封装 (2). 继承 (3). 多态(封装：就是将一个类的信息隐藏在类的内部，不允许外界直接访问，而是提供某些方法实现对隐藏信息的访问和操作。封装的好处就是增">
+<meta property="og:description" content="1.C语言是C++的子集，C++可以很好的兼容C语言，但是C++又有很多新特性，如引用、智能指针、auto变量等2.C++是面向对象的编程语言；C语言是面向过程的编辑语言。 面对对象 ： 把世界万物当成一个对象class，包含本身的属性特性和行为(函数)面对过程 ： 把一件事情分成很多步骤去做，比如一个事情分成了很多个函数，然后一个一个去调用  3.C语言有一些不安全的语言特性，如指针使用的潜在危">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-03-10T12:02:12.000Z">
-<meta property="article:modified_time" content="2024-03-10T12:04:01.586Z">
+<meta property="article:published_time" content="2024-03-16T12:34:41.000Z">
+<meta property="article:modified_time" content="2024-03-16T12:46:00.394Z">
 <meta property="article:author" content="Zhuming">
-<meta property="article:tag" content="基础">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/resources/C-%E5%9F%BA%E7%A1%80">
+<link rel="canonical" href="http://example.com/2024/03/16/C%E4%B8%8EC-%E7%9A%84%E5%8C%BA%E5%88%AB/">
 
 
 <script id="page-configurations">
@@ -43,13 +42,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>C++基础 | Zhuming'博客
-</title>
+  <title>C与C++的区别(面试模板第二天) | Zhuming'博客</title>
   
 
 
@@ -191,62 +189,138 @@
       <div class="main-inner">
         <div class="content-wrap">
           
-  
-  
 
-          <div class="content page posts-expand">
+          <div class="content post posts-expand">
             
 
     
-    
-    
-    <div class="post-block" lang="zh-CN">
-      <header class="post-header">
-
-<h1 class="post-title" itemprop="name headline">C++基础
-</h1>
-
-<div class="post-meta">
+  //post-footer
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/16/C%E4%B8%8EC-%E7%9A%84%E5%8C%BA%E5%88%AB/">
 
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zhuming">
+      <meta itemprop="description" content="成为更好的自己">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhuming'博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          C与C++的区别(面试模板第二天)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-03-16 20:34:41 / 修改时间：20:46:00" itemprop="dateCreated datePublished" datetime="2024-03-16T20:34:41+08:00">2024-03-16</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="1-C语言是C-的子集，C-可以很好的兼容C语言，但是C-又有很多新特性，如引用、智能指针、auto变量等"><a href="#1-C语言是C-的子集，C-可以很好的兼容C语言，但是C-又有很多新特性，如引用、智能指针、auto变量等" class="headerlink" title="1.C语言是C++的子集，C++可以很好的兼容C语言，但是C++又有很多新特性，如引用、智能指针、auto变量等"></a>1.C语言是C++的子集，C++可以很好的兼容C语言，但是C++又有很多新特性，如引用、智能指针、auto变量等</h3><h3 id="2-C-是面向对象的编程语言；C语言是面向过程的编辑语言。"><a href="#2-C-是面向对象的编程语言；C语言是面向过程的编辑语言。" class="headerlink" title="2.C++是面向对象的编程语言；C语言是面向过程的编辑语言。"></a>2.C++是面向对象的编程语言；C语言是面向过程的编辑语言。</h3><hr>
+<p><strong>面对对象</strong> ： 把世界万物当成一个对象class，包含本身的属性特性和行为(函数)<br><strong>面对过程</strong> ： 把一件事情分成很多步骤去做，比如一个事情分成了很多个函数，然后一个一个去调用</p>
+<hr>
+<h3 id="3-C语言有一些不安全的语言特性，如指针使用的潜在危险、强制转换的不确定性、内存泄漏等。而C-增加了不少新特性来改善安全性，如const常量、引用、cast转换、智能指针、try-catch等等"><a href="#3-C语言有一些不安全的语言特性，如指针使用的潜在危险、强制转换的不确定性、内存泄漏等。而C-增加了不少新特性来改善安全性，如const常量、引用、cast转换、智能指针、try-catch等等" class="headerlink" title="3.C语言有一些不安全的语言特性，如指针使用的潜在危险、强制转换的不确定性、内存泄漏等。而C++增加了不少新特性来改善安全性，如const常量、引用、cast转换、智能指针、try-catch等等"></a>3.C语言有一些不安全的语言特性，如指针使用的潜在危险、强制转换的不确定性、内存泄漏等。而C++增加了不少新特性来改善安全性，如const常量、引用、cast转换、智能指针、try-catch等等</h3><h3 id="4-C-可复用性高，C-引入了模板-template-的概念-后面在此基础上，实现了方便开发的标准模板库STL。-C-的STL库相对于C语言的函数库更灵活、更通用"><a href="#4-C-可复用性高，C-引入了模板-template-的概念-后面在此基础上，实现了方便开发的标准模板库STL。-C-的STL库相对于C语言的函数库更灵活、更通用" class="headerlink" title="4.C++可复用性高，C++引入了模板(template)的概念,后面在此基础上，实现了方便开发的标准模板库STL。 C++的STL库相对于C语言的函数库更灵活、更通用"></a>4.C++可复用性高，C++引入了模板(template)的概念,后面在此基础上，实现了方便开发的标准模板库STL。 C++的STL库相对于C语言的函数库更灵活、更通用</h3>
+    </div>
+
+    
+    
+    
+
+    
+      <div>
+       <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:24px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      </div>
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Zhuming
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://example.com/2024/03/16/C%E4%B8%8EC-%E7%9A%84%E5%8C%BA%E5%88%AB/" title="C与C++的区别(面试模板第二天)">http://example.com/2024/03/16/C与C-的区别/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
 </div>
 
-</header>
+        
 
-      
-      
-      
-      <div class="post-body">
-          <h2 id="C-基础"><a href="#C-基础" class="headerlink" title="C++ 基础"></a>C++ 基础</h2><hr>
-<h3 id="1-1-1-简述下C-语言的特点"><a href="#1-1-1-简述下C-语言的特点" class="headerlink" title="1.1.1 简述下C++语言的特点"></a>1.1.1 简述下C++语言的特点</h3><ol>
-<li>C++在C语言的基础上引入了<strong>面对对象</strong>的机制，同时也兼容C语言<br>(面对对象：把一切事物抽象，然后对每个事物的性质和行为进行分析,而面向过程指将一件事情按照步骤进行)</li>
-<li>C++有三大特性: (1). 封装 (2). 继承 (3). 多态<br>(封装：就是将一个类的信息隐藏在类的内部，不允许外界直接访问，而是提供某些方法实现对隐藏信息的访问和操作。封装的好处就是增强了<strong>数据安全性</strong>，也方便了类的实现和修改)<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class student&#123;</span><br><span class="line">public:  //公共权限  类内可以访问 类外可以访问</span><br><span class="line">    string School;</span><br><span class="line">protected: //保护权限 类内可以访问 类外不可以访问</span><br><span class="line">    string PhoneNumber;</span><br><span class="line">private: //私有权限 类内可以访问 类外不可以访问</span><br><span class="line">    int Birthday;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-&emsp;(继承：类与类之间的一种关系。让子类继承父类的特征和行为。好处在于实现了代码的复用)<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class BasePage&#123;</span><br><span class="line">public:...</span><br><span class="line">protected:...</span><br><span class="line">private:...</span><br><span class="line">&#125;</span><br><span class="line">class Java : public BasePage&#123;...&#125;</span><br></pre></td></tr></table></figure>
-&emsp;继承方式：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class A&#123;</span><br><span class="line">public: int a;</span><br><span class="line">protected: int b;</span><br><span class="line">private: int c;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class B:public A //第一种方法</span><br><span class="line">&#123;</span><br><span class="line">public: int a;</span><br><span class="line">protected: int b;</span><br><span class="line">不可访问: int c;</span><br><span class="line">&#125;</span><br><span class="line">class B:protected A //第二种方法</span><br><span class="line">&#123;</span><br><span class="line">protected:</span><br><span class="line">int a;int b;</span><br><span class="line">不可访问：int c;</span><br><span class="line">&#125;</span><br><span class="line">class B:private A //第三种方法</span><br><span class="line">&#123;</span><br><span class="line">private:int a int b;</span><br><span class="line">不可访问: int c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
-<hr>
-<h4 id="struct和class唯一区别在于默认的访问权限不同"><a href="#struct和class唯一区别在于默认的访问权限不同" class="headerlink" title="struct和class唯一区别在于默认的访问权限不同"></a>struct和class唯一区别在于默认的访问权限不同</h4><h6 id="struct默认公共；class默认私有"><a href="#struct默认公共；class默认私有" class="headerlink" title="struct默认公共；class默认私有"></a><code>struct</code>默认公共；<code>class</code>默认私有</h6><hr>
-<p>(多态：指的是一个类对象的相同方法在不同情形下有不同的表现形式。使得不同内部结构的对象可以共享相同的外部接口)</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>C++语言编写出的程序结构清晰、易于扩充，程序可读性好。</li>
-<li>C++生成的代码质量高，运行效率高、仅比汇编语言慢10%~20%</li>
-<li>C++更加安全，增加了const常量，引用，四类cast转化、智能指针等</li>
-<li>C++可复用性高、引入了模板的概念、比如标准模板库STL</li>
-<li>最后，C++是不断在发展的语言。C++后续版本更是更新发展了不少新特性比如nullptr、auto变量等</li>
-</ol>
-<hr>
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
 
-      </div>
-      
-      
-      
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
     </div>
-    
+  </div>
 
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/03/16/%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA/" rel="prev" title="内存分区">
+      <i class="fa fa-chevron-left"></i> 内存分区
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/03/17/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%E5%92%8C%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88/" rel="next" title="函数对象和函数指针">
+      函数对象和函数指针 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
     
-    
-    
+  </article>
+  
+  
+  
+
 
 
           </div>
@@ -302,7 +376,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#C-%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">C++ 基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-1-%E7%AE%80%E8%BF%B0%E4%B8%8BC-%E8%AF%AD%E8%A8%80%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-number">1.1.</span> <span class="nav-text">1.1.1 简述下C++语言的特点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#struct%E5%92%8Cclass%E5%94%AF%E4%B8%80%E5%8C%BA%E5%88%AB%E5%9C%A8%E4%BA%8E%E9%BB%98%E8%AE%A4%E7%9A%84%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E4%B8%8D%E5%90%8C"><span class="nav-number">1.1.1.</span> <span class="nav-text">struct和class唯一区别在于默认的访问权限不同</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#struct%E9%BB%98%E8%AE%A4%E5%85%AC%E5%85%B1%EF%BC%9Bclass%E9%BB%98%E8%AE%A4%E7%A7%81%E6%9C%89"><span class="nav-number">1.1.1.0.1.</span> <span class="nav-text">struct默认公共；class默认私有</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-C%E8%AF%AD%E8%A8%80%E6%98%AFC-%E7%9A%84%E5%AD%90%E9%9B%86%EF%BC%8CC-%E5%8F%AF%E4%BB%A5%E5%BE%88%E5%A5%BD%E7%9A%84%E5%85%BC%E5%AE%B9C%E8%AF%AD%E8%A8%80%EF%BC%8C%E4%BD%86%E6%98%AFC-%E5%8F%88%E6%9C%89%E5%BE%88%E5%A4%9A%E6%96%B0%E7%89%B9%E6%80%A7%EF%BC%8C%E5%A6%82%E5%BC%95%E7%94%A8%E3%80%81%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E3%80%81auto%E5%8F%98%E9%87%8F%E7%AD%89"><span class="nav-number">1.</span> <span class="nav-text">1.C语言是C++的子集，C++可以很好的兼容C语言，但是C++又有很多新特性，如引用、智能指针、auto变量等</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-C-%E6%98%AF%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%EF%BC%9BC%E8%AF%AD%E8%A8%80%E6%98%AF%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E7%9A%84%E7%BC%96%E8%BE%91%E8%AF%AD%E8%A8%80%E3%80%82"><span class="nav-number">2.</span> <span class="nav-text">2.C++是面向对象的编程语言；C语言是面向过程的编辑语言。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-C%E8%AF%AD%E8%A8%80%E6%9C%89%E4%B8%80%E4%BA%9B%E4%B8%8D%E5%AE%89%E5%85%A8%E7%9A%84%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7%EF%BC%8C%E5%A6%82%E6%8C%87%E9%92%88%E4%BD%BF%E7%94%A8%E7%9A%84%E6%BD%9C%E5%9C%A8%E5%8D%B1%E9%99%A9%E3%80%81%E5%BC%BA%E5%88%B6%E8%BD%AC%E6%8D%A2%E7%9A%84%E4%B8%8D%E7%A1%AE%E5%AE%9A%E6%80%A7%E3%80%81%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E7%AD%89%E3%80%82%E8%80%8CC-%E5%A2%9E%E5%8A%A0%E4%BA%86%E4%B8%8D%E5%B0%91%E6%96%B0%E7%89%B9%E6%80%A7%E6%9D%A5%E6%94%B9%E5%96%84%E5%AE%89%E5%85%A8%E6%80%A7%EF%BC%8C%E5%A6%82const%E5%B8%B8%E9%87%8F%E3%80%81%E5%BC%95%E7%94%A8%E3%80%81cast%E8%BD%AC%E6%8D%A2%E3%80%81%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E3%80%81try-catch%E7%AD%89%E7%AD%89"><span class="nav-number">3.</span> <span class="nav-text">3.C语言有一些不安全的语言特性，如指针使用的潜在危险、强制转换的不确定性、内存泄漏等。而C++增加了不少新特性来改善安全性，如const常量、引用、cast转换、智能指针、try-catch等等</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-C-%E5%8F%AF%E5%A4%8D%E7%94%A8%E6%80%A7%E9%AB%98%EF%BC%8CC-%E5%BC%95%E5%85%A5%E4%BA%86%E6%A8%A1%E6%9D%BF-template-%E7%9A%84%E6%A6%82%E5%BF%B5-%E5%90%8E%E9%9D%A2%E5%9C%A8%E6%AD%A4%E5%9F%BA%E7%A1%80%E4%B8%8A%EF%BC%8C%E5%AE%9E%E7%8E%B0%E4%BA%86%E6%96%B9%E4%BE%BF%E5%BC%80%E5%8F%91%E7%9A%84%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93STL%E3%80%82-C-%E7%9A%84STL%E5%BA%93%E7%9B%B8%E5%AF%B9%E4%BA%8EC%E8%AF%AD%E8%A8%80%E7%9A%84%E5%87%BD%E6%95%B0%E5%BA%93%E6%9B%B4%E7%81%B5%E6%B4%BB%E3%80%81%E6%9B%B4%E9%80%9A%E7%94%A8"><span class="nav-number">4.</span> <span class="nav-text">4.C++可复用性高，C++引入了模板(template)的概念,后面在此基础上，实现了方便开发的标准模板库STL。 C++的STL库相对于C语言的函数库更灵活、更通用</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

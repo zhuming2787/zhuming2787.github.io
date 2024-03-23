@@ -22,20 +22,19 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="C++ 基础 1.1.1 简述下C++语言的特点 C++在C语言的基础上引入了面对对象的机制，同时也兼容C语言(面对对象：把一切事物抽象，然后对每个事物的性质和行为进行分析,而面向过程指将一件事情按照步骤进行) C++有三大特性: (1). 封装 (2). 继承 (3). 多态(封装：就是将一个类的信息隐藏在类的内部，不允许外界直接访问，而是提供某些方法实现对隐藏信息的访问和操作。封装的好处就是增">
-<meta property="og:type" content="website">
-<meta property="og:title" content="C++基础">
-<meta property="og:url" content="http://example.com/resources/C-%E5%9F%BA%E7%A1%80.html">
+  <meta name="description" content="C++与C语言类似，一个C++程序从源码到执行文件，有四个过程，预编译、编译、汇编、链接  首先，预编译：(1) 将所有的#define删除，并且展开所有宏定义 12345678#define NUM 17#define DNUM NUM+NUM&#x2F;&#x2F;则表达式 DNUM&#x2F;2+NUM&#x2F;2的值为?&#x2F;&#x2F;预编译是将DNUM转化成NUM+NUM，所以表达式变成了NUM+NUM&#x2F;2+NUM&#x2F;2&#x2F;&#x2F;等等！答案不">
+<meta property="og:type" content="article">
+<meta property="og:title" content="（1.1.7）C++从代码到可执行二进制文件的过程">
+<meta property="og:url" content="http://example.com/2024/03/18/C-%E4%BB%8E%E4%BB%A3%E7%A0%81%E5%88%B0%E5%8F%AF%E6%89%A7%E8%A1%8C%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6%E7%9A%84%E8%BF%87%E7%A8%8B/index.html">
 <meta property="og:site_name" content="Zhuming&#39;博客">
-<meta property="og:description" content="C++ 基础 1.1.1 简述下C++语言的特点 C++在C语言的基础上引入了面对对象的机制，同时也兼容C语言(面对对象：把一切事物抽象，然后对每个事物的性质和行为进行分析,而面向过程指将一件事情按照步骤进行) C++有三大特性: (1). 封装 (2). 继承 (3). 多态(封装：就是将一个类的信息隐藏在类的内部，不允许外界直接访问，而是提供某些方法实现对隐藏信息的访问和操作。封装的好处就是增">
+<meta property="og:description" content="C++与C语言类似，一个C++程序从源码到执行文件，有四个过程，预编译、编译、汇编、链接  首先，预编译：(1) 将所有的#define删除，并且展开所有宏定义 12345678#define NUM 17#define DNUM NUM+NUM&#x2F;&#x2F;则表达式 DNUM&#x2F;2+NUM&#x2F;2的值为?&#x2F;&#x2F;预编译是将DNUM转化成NUM+NUM，所以表达式变成了NUM+NUM&#x2F;2+NUM&#x2F;2&#x2F;&#x2F;等等！答案不">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-03-10T12:02:12.000Z">
-<meta property="article:modified_time" content="2024-03-10T12:04:01.586Z">
+<meta property="article:published_time" content="2024-03-18T12:00:03.000Z">
+<meta property="article:modified_time" content="2024-03-18T12:41:30.166Z">
 <meta property="article:author" content="Zhuming">
-<meta property="article:tag" content="基础">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/resources/C-%E5%9F%BA%E7%A1%80">
+<link rel="canonical" href="http://example.com/2024/03/18/C-%E4%BB%8E%E4%BB%A3%E7%A0%81%E5%88%B0%E5%8F%AF%E6%89%A7%E8%A1%8C%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6%E7%9A%84%E8%BF%87%E7%A8%8B/">
 
 
 <script id="page-configurations">
@@ -43,13 +42,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>C++基础 | Zhuming'博客
-</title>
+  <title>（1.1.7）C++从代码到可执行二进制文件的过程 | Zhuming'博客</title>
   
 
 
@@ -191,62 +189,148 @@
       <div class="main-inner">
         <div class="content-wrap">
           
-  
-  
 
-          <div class="content page posts-expand">
+          <div class="content post posts-expand">
             
 
     
-    
-    
-    <div class="post-block" lang="zh-CN">
-      <header class="post-header">
-
-<h1 class="post-title" itemprop="name headline">C++基础
-</h1>
-
-<div class="post-meta">
+  //post-footer
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/18/C-%E4%BB%8E%E4%BB%A3%E7%A0%81%E5%88%B0%E5%8F%AF%E6%89%A7%E8%A1%8C%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6%E7%9A%84%E8%BF%87%E7%A8%8B/">
 
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zhuming">
+      <meta itemprop="description" content="成为更好的自己">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhuming'博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          （1.1.7）C++从代码到可执行二进制文件的过程
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-03-18 20:00:03 / 修改时间：20:41:30" itemprop="dateCreated datePublished" datetime="2024-03-18T20:00:03+08:00">2024-03-18</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p> C++与C语言类似，一个C++程序从源码到执行文件，有四个过程，<strong>预编译、编译、汇编、链接</strong></p>
+<hr>
+<h4 id="首先，预编译："><a href="#首先，预编译：" class="headerlink" title="首先，预编译："></a>首先，预编译：</h4><p>(1) 将所有的#define删除，并且展开所有宏定义</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#define NUM 17</span><br><span class="line">#define DNUM NUM+NUM</span><br><span class="line">//则表达式 DNUM/2+NUM/2的值为?</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//预编译是将DNUM转化成NUM+NUM，所以表达式变成了NUM+NUM/2+NUM/2</span><br><span class="line">//等等！答案不是34,原式=NUM+NUM/2+NUM/2=17+17/2+17/2=17+8+8=33!</span><br><span class="line">//C++里面采用的是floor整型计算,取整,去小数！</span><br></pre></td></tr></table></figure>
+<p>(2) 处理所有的条件预编译指令，如#if、#ifdef</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#ifndef HEADER_FILE_NAME_H</span><br><span class="line">#define HEADER_FILE_NAME_H</span><br><span class="line">#include &quot;HEADER_FILE&quot;</span><br><span class="line">#endif</span><br><span class="line"></span><br><span class="line">//作用1、防止头文件被多次包含</span><br><span class="line">2、使用#ifndef主要原因是为了避免重复定义，使代码模块化和可维护</span><br></pre></td></tr></table></figure>
+
+<p>(3) 处理#include预编译指令，将被包含的文件插入该预编译指令中，这也是为什么第二点中会发生重复定义</p>
+<p>(4) 过滤所有的注释&#x2F;&#x2F;<br>(5) 添加行号和文件名标识</p>
+<h4 id="其次，编译"><a href="#其次，编译" class="headerlink" title="其次，编译"></a>其次，编译</h4><p>(1) 词法分析：将源代码的字符序列分割成一系列的记号<br>(2) 将预处理后的中间文件转换成汇编语言<br>(3) 这个步骤将源代码翻译成机器语言。生成对应的目标文件</p>
+<h4 id="然后，汇编"><a href="#然后，汇编" class="headerlink" title="然后，汇编"></a>然后，汇编</h4><p>这个过程主要将汇编代码转换成机器可以执行的指令</p>
+<h4 id="最后，链接"><a href="#最后，链接" class="headerlink" title="最后，链接"></a>最后，链接</h4><p>将不同的源文件产生的目标文件进行链接，从而形成一个可以执行的程序。<br>(1) 静态链接： 链接的时候就把调用的函数或者过程链接到了生成的可执行文件的执行；生成的静态链接库<br>(2) 动态链接，是在链接的时候没有把调用的函数代码链接进去，而是在执行的过程中，找要链接的代码</p>
+<p>通俗点讲就是：静态链接直接把头文件复制进去，而动态链接是可执行文件包含对库函数的引用，但实际的库文件不被复制，由操作系统动态地加载和链接这些库文件。各有优缺点。</p>
+<h4 id="总结-预编译先处理-以及注释，编译将文件再转换成汇编语言，第三步汇编是把汇编语言转换成机器可以执行的指令，最后的链接就是选择静态链接还是动态链接"><a href="#总结-预编译先处理-以及注释，编译将文件再转换成汇编语言，第三步汇编是把汇编语言转换成机器可以执行的指令，最后的链接就是选择静态链接还是动态链接" class="headerlink" title="总结 : 预编译先处理#以及注释，编译将文件再转换成汇编语言，第三步汇编是把汇编语言转换成机器可以执行的指令，最后的链接就是选择静态链接还是动态链接"></a><strong>总结</strong> : 预编译先处理#以及注释，编译将文件再转换成汇编语言，第三步汇编是把汇编语言转换成机器可以执行的指令，最后的链接就是选择静态链接还是动态链接</h4>
+    </div>
+
+    
+    
+    
+
+    
+      <div>
+       <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:24px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      </div>
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Zhuming
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://example.com/2024/03/18/C-%E4%BB%8E%E4%BB%A3%E7%A0%81%E5%88%B0%E5%8F%AF%E6%89%A7%E8%A1%8C%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6%E7%9A%84%E8%BF%87%E7%A8%8B/" title="（1.1.7）C++从代码到可执行二进制文件的过程">http://example.com/2024/03/18/C-从代码到可执行二进制文件的过程/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
 </div>
 
-</header>
+        
 
-      
-      
-      
-      <div class="post-body">
-          <h2 id="C-基础"><a href="#C-基础" class="headerlink" title="C++ 基础"></a>C++ 基础</h2><hr>
-<h3 id="1-1-1-简述下C-语言的特点"><a href="#1-1-1-简述下C-语言的特点" class="headerlink" title="1.1.1 简述下C++语言的特点"></a>1.1.1 简述下C++语言的特点</h3><ol>
-<li>C++在C语言的基础上引入了<strong>面对对象</strong>的机制，同时也兼容C语言<br>(面对对象：把一切事物抽象，然后对每个事物的性质和行为进行分析,而面向过程指将一件事情按照步骤进行)</li>
-<li>C++有三大特性: (1). 封装 (2). 继承 (3). 多态<br>(封装：就是将一个类的信息隐藏在类的内部，不允许外界直接访问，而是提供某些方法实现对隐藏信息的访问和操作。封装的好处就是增强了<strong>数据安全性</strong>，也方便了类的实现和修改)<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class student&#123;</span><br><span class="line">public:  //公共权限  类内可以访问 类外可以访问</span><br><span class="line">    string School;</span><br><span class="line">protected: //保护权限 类内可以访问 类外不可以访问</span><br><span class="line">    string PhoneNumber;</span><br><span class="line">private: //私有权限 类内可以访问 类外不可以访问</span><br><span class="line">    int Birthday;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-&emsp;(继承：类与类之间的一种关系。让子类继承父类的特征和行为。好处在于实现了代码的复用)<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class BasePage&#123;</span><br><span class="line">public:...</span><br><span class="line">protected:...</span><br><span class="line">private:...</span><br><span class="line">&#125;</span><br><span class="line">class Java : public BasePage&#123;...&#125;</span><br></pre></td></tr></table></figure>
-&emsp;继承方式：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class A&#123;</span><br><span class="line">public: int a;</span><br><span class="line">protected: int b;</span><br><span class="line">private: int c;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class B:public A //第一种方法</span><br><span class="line">&#123;</span><br><span class="line">public: int a;</span><br><span class="line">protected: int b;</span><br><span class="line">不可访问: int c;</span><br><span class="line">&#125;</span><br><span class="line">class B:protected A //第二种方法</span><br><span class="line">&#123;</span><br><span class="line">protected:</span><br><span class="line">int a;int b;</span><br><span class="line">不可访问：int c;</span><br><span class="line">&#125;</span><br><span class="line">class B:private A //第三种方法</span><br><span class="line">&#123;</span><br><span class="line">private:int a int b;</span><br><span class="line">不可访问: int c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
-<hr>
-<h4 id="struct和class唯一区别在于默认的访问权限不同"><a href="#struct和class唯一区别在于默认的访问权限不同" class="headerlink" title="struct和class唯一区别在于默认的访问权限不同"></a>struct和class唯一区别在于默认的访问权限不同</h4><h6 id="struct默认公共；class默认私有"><a href="#struct默认公共；class默认私有" class="headerlink" title="struct默认公共；class默认私有"></a><code>struct</code>默认公共；<code>class</code>默认私有</h6><hr>
-<p>(多态：指的是一个类对象的相同方法在不同情形下有不同的表现形式。使得不同内部结构的对象可以共享相同的外部接口)</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>C++语言编写出的程序结构清晰、易于扩充，程序可读性好。</li>
-<li>C++生成的代码质量高，运行效率高、仅比汇编语言慢10%~20%</li>
-<li>C++更加安全，增加了const常量，引用，四类cast转化、智能指针等</li>
-<li>C++可复用性高、引入了模板的概念、比如标准模板库STL</li>
-<li>最后，C++是不断在发展的语言。C++后续版本更是更新发展了不少新特性比如nullptr、auto变量等</li>
-</ol>
-<hr>
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
 
-      </div>
-      
-      
-      
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
     </div>
-    
+  </div>
 
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/03/17/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%E5%92%8C%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88/" rel="prev" title="函数对象和函数指针">
+      <i class="fa fa-chevron-left"></i> 函数对象和函数指针
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/03/18/static/" rel="next" title="（1.1.8）static">
+      （1.1.8）static <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
     
-    
-    
+  </article>
+  
+  
+  
+
 
 
           </div>
@@ -302,7 +386,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#C-%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">C++ 基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-1-%E7%AE%80%E8%BF%B0%E4%B8%8BC-%E8%AF%AD%E8%A8%80%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-number">1.1.</span> <span class="nav-text">1.1.1 简述下C++语言的特点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#struct%E5%92%8Cclass%E5%94%AF%E4%B8%80%E5%8C%BA%E5%88%AB%E5%9C%A8%E4%BA%8E%E9%BB%98%E8%AE%A4%E7%9A%84%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E4%B8%8D%E5%90%8C"><span class="nav-number">1.1.1.</span> <span class="nav-text">struct和class唯一区别在于默认的访问权限不同</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#struct%E9%BB%98%E8%AE%A4%E5%85%AC%E5%85%B1%EF%BC%9Bclass%E9%BB%98%E8%AE%A4%E7%A7%81%E6%9C%89"><span class="nav-number">1.1.1.0.1.</span> <span class="nav-text">struct默认公共；class默认私有</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A6%96%E5%85%88%EF%BC%8C%E9%A2%84%E7%BC%96%E8%AF%91%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">首先，预编译：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B6%E6%AC%A1%EF%BC%8C%E7%BC%96%E8%AF%91"><span class="nav-number">2.</span> <span class="nav-text">其次，编译</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%84%B6%E5%90%8E%EF%BC%8C%E6%B1%87%E7%BC%96"><span class="nav-number">3.</span> <span class="nav-text">然后，汇编</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E5%90%8E%EF%BC%8C%E9%93%BE%E6%8E%A5"><span class="nav-number">4.</span> <span class="nav-text">最后，链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%BB%E7%BB%93-%E9%A2%84%E7%BC%96%E8%AF%91%E5%85%88%E5%A4%84%E7%90%86-%E4%BB%A5%E5%8F%8A%E6%B3%A8%E9%87%8A%EF%BC%8C%E7%BC%96%E8%AF%91%E5%B0%86%E6%96%87%E4%BB%B6%E5%86%8D%E8%BD%AC%E6%8D%A2%E6%88%90%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%EF%BC%8C%E7%AC%AC%E4%B8%89%E6%AD%A5%E6%B1%87%E7%BC%96%E6%98%AF%E6%8A%8A%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E8%BD%AC%E6%8D%A2%E6%88%90%E6%9C%BA%E5%99%A8%E5%8F%AF%E4%BB%A5%E6%89%A7%E8%A1%8C%E7%9A%84%E6%8C%87%E4%BB%A4%EF%BC%8C%E6%9C%80%E5%90%8E%E7%9A%84%E9%93%BE%E6%8E%A5%E5%B0%B1%E6%98%AF%E9%80%89%E6%8B%A9%E9%9D%99%E6%80%81%E9%93%BE%E6%8E%A5%E8%BF%98%E6%98%AF%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5"><span class="nav-number">5.</span> <span class="nav-text">总结 : 预编译先处理#以及注释，编译将文件再转换成汇编语言，第三步汇编是把汇编语言转换成机器可以执行的指令，最后的链接就是选择静态链接还是动态链接</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
